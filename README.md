@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Step Addition Application
 
-## Getting Started
+This application allows users to generate a step-by-step addition process for two input numbers and save the results in a PostgreSQL database. The application is built using NextJS (for frontend), NodeJS + Express (for backend), and PostgreSQL for the database.
 
-First, run the development server:
+It is frontend side repo.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# How to Run the Application(Frontend):
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone Repo: `https://github.com/luckyboy125/eqaim-frontend`
+2. Download Node application and install.
+3. Run Backend code (You can follow readme to run backend side.): `https://github.com/luckyboy125/eqaim-backend`
+3. Run `npm install`
+4. Build: `npm run build`
+5. Start(dev method): `npm run dev`
+6. Start: `npm start`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Home Screen:
+The home screen has a form where the user inputs two numbers to add. After clicking the "Generate Steps" button, an API call is triggered using Axios which passes the two numbers to the backend. The backend then generates a JSON object of the step-by-step addition process and returns it to the frontend, which displays it in the output area on the home screen.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Save Results:
+The "Save Results to DB" button saves the results of the addition process in a PostgreSQL table in JSON format. The saved results can be retrieved using another API that supports pagination.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+API Details:
 
-## Learn More
+Method: POST
 
-To learn more about Next.js, take a look at the following resources:
+Request Body:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+num1: string (positive number)
+num2: string (positive number)
+Response Body:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+steps: array of objects containing the step-by-step addition process
+Note: The request body is validated using regex to ensure that only positive numbers are allowed.
 
-## Deploy on Vercel
+Step Generation Process:
+The step generation process involves adding digits at each place value and tracking any carries that occur.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Example: Suppose we want to add 1489 and 714. The first step is to add digits at the unit places, which gives us a sum of 13 (9+4). The "1" of 13 goes as a carry to the tens place, so the actual sum is "3" and "1" is the carry. As the "1" which goes to carry is at the tens place, an underscore is appended for the unit place. Hence, in step-1, we have carryString="1_" and sumString="3".
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The process continues for each place value until there are no more carries. In the end, the final sum is obtained by combining the strings of the carry and sum values.
+
+Dependencies:
+
+Next.js
+React
+Node.js
+Express
+Axios
+pg
+Typescript
