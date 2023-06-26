@@ -1,0 +1,197 @@
+.main {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container .header {
+  padding: 0 91px;
+  height: 143px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #e9e9e9;
+}
+
+.container .header h1 {
+  color: #000;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.container .content {
+  padding: 60px 193px 56px;
+  text-align: right;
+}
+
+.container .content .input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+.container .content .input label {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  min-width: 273px;
+}
+
+.container .content .input input {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: right;
+  flex-grow: 1;
+  color: #000;
+  border: 1px solid transparent;
+  background-color: transparent;
+  padding: 0 26px !important;
+  background: #e9e9e9;
+  height: 54px;
+  width: 100%;
+}
+
+.container .content .input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container .content .input input::placeholder {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000;
+}
+
+.container .content .input input:focus-visible {
+  outline: none;
+}
+
+.container .content .input input:focus {
+  outline: none;
+}
+
+.container .content .generateBtn {
+  width: 328px;
+  height: 76px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #a8a8a8;
+  margin: 6px 0 50px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.container .content .generateBtn span {
+  font-size: 32px;
+  font-weight: 400;
+  color: #000;
+}
+
+.container .content .saveBtn {
+  width: 371px;
+  height: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #138900;
+  margin-top: 51px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.container .content .saveBtn span {
+  font-size: 40px;
+  font-weight: 400;
+  color: #fff;
+}
+
+@media screen and (max-width: 960px) {
+  .container .header {
+    padding: 0 50px;
+    height: 143px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #e9e9e9;
+  }
+
+  .container .header h1 {
+    font-size: 30px;
+  }
+  .container .content {
+    padding: 30px 100px 50px;
+    text-align: right;
+  }
+  .container .content .input label {
+    font-size: 20px;
+    min-width: 170px;
+  }
+  .container .content .generateBtn {
+    width: 200px;
+    height: 40px;
+  }
+
+  .container .content .generateBtn span {
+    font-size: 20px;
+  }
+
+  .container .content .saveBtn {
+    width: 220px;
+    height: 40px;
+  }
+
+  .container .content .saveBtn span {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container .header {
+    padding: 0 30px;
+    height: 50px;
+    justify-content: center;
+  }
+  .container .header h1 {
+    font-size: 20px;
+  }
+  .container .content {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .container .content .input {
+    flex-direction: column;
+  }
+
+  .container .content .input input {
+    margin-top: 20px;
+  }
+
+  .container .content .generateBtn {
+    margin-right: auto;
+  }
+
+  .container .content .generateBtn span {
+    font-size: 16px;
+  }
+
+  .container .content .saveBtn {
+    margin-right: auto;
+  }
+
+  .container .content .saveBtn span {
+    font-size: 16px;
+  }
+}
